@@ -9,20 +9,11 @@ function App(){
     }
 
     const addCounter =() =>{
-        setCount([...counters,{id: counters.length+1,number:0}])
+        setCount([...counters,{id: Math.round(Math.random()*1000),number:0}])
     }
-
-    // const removeCounter =(id) =>{
-    //     let removeArr = counters.findIndex(el=>el.id===id)
-    //     let newRemove = [...counters]
-    //     newRemove.splice(removeArr,1)
-    //     setCount(newRemove)
-    // }
-
     const removeCounter =(id) =>{
         setCount (counters.filter(el=>(el.id != id)))
     }
-
     return(
         <div className="app"> 
             <div>
