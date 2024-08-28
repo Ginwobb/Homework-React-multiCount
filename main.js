@@ -14,12 +14,22 @@ function App(){
     const removeCounter =(id) =>{
         setCount (counters.filter(el=>(el.id != id)))
     }
+
+    const plusAll = () => {
+        const newCounters = counters.map(counter => ({ ...counter, number: counter.number + 1 }));
+        console.log(newCounters);
+        setCount (newCounters);
+    };
+
     return(
         <div className="app"> 
             <div>
                 <h1>Sum = {counters.reduce((acc, el) => acc + el.number, 0)}</h1>
+                <div className="btn-group"> 
                     <button className="btn btn-add" onClick={()=>addCounter(counters)}>Add Counter</button>
+                    <button className="btn btn-plus" onClick={plusAll}>Plus All</button>
                 </div>
+            </div>
             <div>
                {counters.map(el => (
                 <Counter key={el.id} item={el} updateCounter={updateCounter} removeCounter={removeCounter} />
