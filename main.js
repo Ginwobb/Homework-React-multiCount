@@ -12,11 +12,15 @@ function App(){
         setCount([...counters,{id: counters.length+1,number:0}])
     }
 
+    // const removeCounter =(id) =>{
+    //     let removeArr = counters.findIndex(el=>el.id===id)
+    //     let newRemove = [...counters]
+    //     newRemove.splice(removeArr,1)
+    //     setCount(newRemove)
+    // }
+
     const removeCounter =(id) =>{
-        let removeArr = counters.findIndex(el=>el.id===id)
-        let newRemove = [...counters]
-        newRemove.splice(removeArr,1)
-        setCount(newRemove)
+        setCount (counters.filter(el=>(el.id != id)))
     }
 
     return(
